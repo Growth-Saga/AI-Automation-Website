@@ -1,0 +1,156 @@
+/* Growth Saga AI site: Case Studies page.
+   Sits on style.css + ai.css (shared rhythm, type, keyword gradient, light lines). */
+
+/* ---------- A1 · Hero: headline left, the results strip as glass tiles right ---------- */
+.cs-hero { overflow: hidden; }
+.cs-hero .hero__glow {
+  background:
+    radial-gradient(60% 70% at 8% 0%, rgba(30, 42, 90, .9), transparent 70%),
+    radial-gradient(45% 55% at 88% 8%, rgba(70, 100, 220, .22), transparent 70%),
+    radial-gradient(40% 45% at 72% 62%, rgba(255, 90, 60, .12), transparent 70%);
+}
+.cs-hero .wrap { position: relative; z-index: 2; }
+.results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 520px; margin-left: auto; }
+.res {
+  position: relative; display: flex; flex-direction: column; min-height: 168px; padding: 18px 18px 18px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .015) 55%, rgba(255, 255, 255, .03));
+  border: 1px solid rgba(183, 191, 217, .2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 30px 60px -30px rgba(0, 0, 0, .7);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  transition: border-color .6s var(--ease), box-shadow .6s var(--ease), translate .6s var(--ease), background-color .6s;
+}
+/* line of light along the bottom edge, cool by default, coral when lit */
+.res::before { content: ''; position: absolute; left: 12%; right: 12%; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(140, 165, 255, .7), transparent); transition: background .6s; }
+.res::after { content: ''; position: absolute; top: -1px; right: -1px; width: 14px; height: 14px; background: var(--coral); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.res__top { display: flex; align-items: flex-start; }
+/* icon box: same as the Services tiles */
+.res .jump__icon {
+  width: 46px; height: 46px; display: grid; place-items: center;
+  background: linear-gradient(150deg, #1E2A5A, #0B0F2F 75%); border: 1px solid rgba(183, 191, 217, .2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 12px 24px -10px rgba(0, 0, 0, .6); transition: border-color .6s, box-shadow .6s;
+}
+.res .jump__icon svg { width: 26px; height: 26px; overflow: visible; }
+.res .jump__icon .glow { filter: drop-shadow(0 0 5px rgba(255, 90, 60, .75)); }
+.res b {
+  margin-top: auto; padding-top: 16px; font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif; font-size: clamp(30px, 2.6vw, 40px); font-weight: 600; line-height: 1;
+  background: linear-gradient(180deg, #fff 35%, #C9CFE6); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.res b small { font-size: .6em; margin-left: 2px; background: linear-gradient(180deg, #FF9A6A, #FF5A3C); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.res__label { margin-top: 6px; font-size: 13.5px; line-height: 1.4; color: var(--soft); }
+/* lit: one tile at a time glows coral (cycled by case-studies.js; hover takes over) */
+.res.is-lit, .res:hover {
+  border-color: rgba(255, 106, 70, .75); background-color: rgba(255, 90, 60, .05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 0 0 1px rgba(255, 90, 60, .25), 0 0 46px -8px rgba(255, 90, 60, .55), 0 30px 60px -30px rgba(0, 0, 0, .7);
+}
+.res.is-lit::before, .res:hover::before { background: linear-gradient(90deg, transparent, #FF7A45, transparent); }
+.res.is-lit .jump__icon, .res:hover .jump__icon { border-color: rgba(255, 106, 70, .55); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 0 24px -6px rgba(255, 90, 60, .6); }
+.res:hover { translate: 0 -4px; }
+
+/* ---------- A3 · Featured cases ---------- */
+.chips { display: flex; flex-wrap: nowrap; justify-content: flex-end; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; cursor: pointer;
+  background: var(--white); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--grey);
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+.chip i { width: 7px; height: 7px; background: rgba(15, 23, 42, .2); transition: background-color .3s; }
+.chip:hover { border-color: var(--ink); color: var(--ink); }
+.chip.is-on { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.chip.is-on i { background: var(--coral); }
+
+.feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.feat { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); box-shadow: 0 40px 80px -60px rgba(11, 15, 47, .4); }
+/* the live workspaces, shown on a laptop: dark bezel + camera, browser bar, silver base with hinge notch */
+.device {
+  position: relative; padding: clamp(28px, 3vw, 40px) clamp(28px, 3.4vw, 48px) clamp(22px, 2.4vw, 32px); overflow: hidden;
+  background: radial-gradient(70% 70% at 50% 100%, rgba(255, 90, 60, .22), transparent 70%), linear-gradient(160deg, #1E2A5A, #0B0F2F 70%);
+  --cut: 28px; clip-path: var(--facet-tr);
+}
+.device::after { content: ''; position: absolute; top: 0; right: 0; width: 28px; height: 28px; background: var(--coral); clip-path: polygon(0 0, 100% 100%, 0 100%); }
+.device__lid {
+  position: relative; margin: 0 6%; padding: 3.2% 2.4% 2.4%; background: #0A0C14; border-radius: 14px 14px 4px 4px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1), 0 30px 50px -24px rgba(0, 0, 0, .8);
+}
+.device__lid::before { content: ''; position: absolute; top: 1.3%; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: #2A2F3D; box-shadow: inset 0 0 0 1.5px #151925; }
+.device__screen { overflow: hidden; background: #fff; border-radius: 3px; }
+.device__bar { display: flex; align-items: center; gap: 5px; height: 20px; padding: 0 10px; background: #E9EBF0; border-bottom: 1px solid #D5D9E2; }
+.device__bar i { width: 7px; height: 7px; border-radius: 50%; background: #FF5F57; }
+.device__bar i:nth-child(2) { background: #FEBC2E; }
+.device__bar i:nth-child(3) { background: #28C840; }
+.device__bar span { flex: 1; margin: 0 22px 0 12px; padding: 2px 10px; background: #fff; border-radius: 4px; font-size: 9.5px; font-weight: 600; text-align: center; color: #5B6372; }
+.device__screen img { display: block; width: 100%; height: auto; aspect-ratio: 1400 / 788; transition: transform 1.4s var(--ease); transform-origin: 50% 0; }
+.feat:hover .device__screen img { transform: scale(1.03); }
+.device__base {
+  position: relative; height: 14px; margin: 0;
+  background: linear-gradient(180deg, #D9DCE3, #A9AEBA 55%, #7E8392); border-radius: 0 0 14px 14px / 0 0 10px 10px;
+  box-shadow: 0 18px 30px -12px rgba(0, 0, 0, .7);
+}
+.device__base::before { content: ''; position: absolute; top: 0; left: 50%; width: 16%; height: 5px; transform: translateX(-50%); background: linear-gradient(180deg, #8C91A0, #B7BBC6); border-radius: 0 0 8px 8px; }
+
+.feat__body { flex: 1; display: flex; flex-direction: column; align-items: flex-start; padding: clamp(24px, 2.6vw, 34px); }
+/* logo on its own line in a fixed-height slot, tags under it, so both cards' headlines start level */
+.feat__top { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.feat__logo { height: 40px; width: auto; }
+#nutanvij .feat__logo { height: 28px; margin: 6px 0; }
+/* Orange and its child company Colorix, side by side */
+.feat__logos { display: flex; align-items: center; gap: 18px; }
+.feat__logos i { width: 1px; height: 30px; background: var(--line); }
+.feat__logo--cx { height: 34px; }
+.feat h3 { margin-top: 20px; font-size: clamp(22px, 2vw, 28px); font-weight: 800; letter-spacing: -.025em; line-height: 1.2; }
+.feat__nums { margin: 22px 0 24px; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.feat__nums li { padding: 14px 14px 12px; background: var(--bg); border-top: 2px solid var(--coral); }
+.feat__nums b { display: block; font-family: 'Clash Display', 'Plus Jakarta Sans', sans-serif; font-size: clamp(22px, 2vw, 28px); font-weight: 600; line-height: 1.1; }
+.feat__nums span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.35; color: var(--grey); }
+.feat .textlink { margin-top: auto; }
+
+/* ---------- A4 · More of our work: 5 cases + one call-to-action tile = an even 3 × 2 grid ---------- */
+.more-head { margin-top: clamp(56px, 7vh, 80px); }
+.more-head .label { margin-bottom: 24px; }
+.mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+/* each card spans 4 shared rows (tag, title, problem, fix), so the parts line up across every card in a row */
+.mini-grid { grid-auto-rows: auto; row-gap: 0; }
+.mini { position: relative; overflow: hidden; display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start; margin-bottom: 16px; padding: clamp(22px, 2.4vw, 30px); background: var(--white); border: 1px solid var(--line); }
+.mini__tag { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--grey); }
+.mini h3 { margin-top: 14px; font-size: clamp(19px, 1.6vw, 22px); font-weight: 800; letter-spacing: -.02em; line-height: 1.25; }
+.mini__row { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.55; color: var(--grey); }
+.mini__row b { display: block; margin-bottom: 4px; font-size: 11.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.mini__row--fix b { color: var(--coral-h); }
+.mini--cta { text-decoration: none; color: var(--white); background: var(--navy); border-color: var(--navy); --cut: 24px; clip-path: var(--facet-tr); }
+.mini--cta::after { content: ''; position: absolute; top: 0; right: 0; width: 24px; height: 24px; background: var(--coral); clip-path: polygon(0 0, 100% 100%, 0 100%); }
+.mini--cta .mini__tag { color: var(--coral); }
+.mini--cta h3 { font-size: clamp(22px, 2vw, 28px); }
+.mini__cta-line { margin: 10px 0 24px; font-size: 15.5px; line-height: 1.55; color: var(--soft); }
+.mini--cta .btn { align-self: end; justify-self: start; }
+.cs-note { margin-top: 24px; font-size: 13.5px; color: var(--grey); }
+
+/* filtering: cards that don't match fade out of the grid */
+[data-cases] > .is-out { display: none; }
+
+/* ---------- A6 · Call to action ---------- */
+.final__title .h-line { display: block; }
+
+/* ---------- Desktop ---------- */
+@media (min-width: 901px) {
+  .cs-hero { padding-bottom: 0; }
+  .cs-hero .hero__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .cs-work .svc__head { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+  .final .final__lead { max-width: 42ch; text-wrap: balance; }
+  .final .final__title { max-width: none; }
+  .final .final__title .h-line { white-space: nowrap; }
+}
+@media (min-width: 901px) and (max-width: 1180px) {
+  .mini-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- Phone (≤900px) ---------- */
+@media (max-width: 900px) {
+  .results { margin: 8px 0 0; max-width: none; gap: 8px; }
+  .res { min-height: 0; padding: 14px; }
+  .res .jump__icon { width: 38px; height: 38px; }
+  .res .jump__icon svg { width: 22px; height: 22px; }
+  .res b { font-size: 26px; padding-top: 14px; }
+  .res__label { font-size: 12.5px; }
+  .chips { flex-wrap: wrap; justify-content: flex-start; }
+  .feat-grid, .mini-grid { grid-template-columns: 1fr; }
+  .feat__nums b { font-size: 20px; }
+}
