@@ -16,6 +16,7 @@
   <link rel="preload" href="assets/fonts/PlusJakartaSans-Variable.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/ai.css">
+  <link rel="stylesheet" href="assets/css/mobile.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -67,13 +68,13 @@
       </defs>
     </svg>
     <div class="hero__copy">
-      <p class="label" data-hero-fade>AI agents · Automation · Dashboards · GTM</p>
+      <p class="label" data-hero-fade><span data-m-hide>AI agents</span><span data-m-only>Agents</span> · Automation · Dashboards · GTM</p>
       <h1 class="hero__title" data-split>
         <span class="h-line">Most AI agencies</span>
         <span class="h-line">ship workflows.</span>
         <span class="h-line">We ship <em class="accent">P&amp;L impact.</em></span>
       </h1>
-      <p class="hero__lead" data-hero-fade>AI agents, automations, custom dashboards and GTM systems for B2B &amp; SaaS. Built by a team that thinks in business outcomes, not tech demos. We start with your numbers, not your tools.</p>
+      <p class="hero__lead" data-hero-fade>AI agents, automations, <span data-m-hide>custom </span>dashboards and GTM systems for B2B &amp; SaaS.<span data-m-hide> Built by a team that thinks in business outcomes, not tech demos.</span> We start with your numbers, not your tools.</p>
 
       <div class="cta-row" data-hero-fade>
         <a class="btn btn--lg magnetic" href="https://calendly.com/growth-saga/ai-solutions-for-business" target="_blank" rel="noopener"><span>Book a free call</span><svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 L11 5 H5 V3 H13 V11 H11 V7 L5 15Z"/></svg></a>
@@ -217,7 +218,7 @@
       <p class="lead" data-reveal>The four areas where AI moves the needle for most businesses today.</p>
     </div>
 
-    <div class="svc__grid" data-reveal-group>
+    <div class="svc__grid" data-reveal-group data-m-swipe>
       <article class="svc-card spot">
         <div class="svc-card__top">
           <svg class="svc-card__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 12H36V36H12Z M18 18V30H30V18Z M16 4H20V12H16Z M28 4H32V12H28Z M16 36H20V44H16Z M28 36H32V44H28Z M4 16H12V20H4Z M4 28H12V32H4Z M36 16H44V20H36Z M36 28H44V32H36Z" fill-rule="evenodd"/><path class="hot" d="M21 21H27V27H21Z"/></svg>
@@ -633,7 +634,7 @@
     <div class="faq__head">
       <div>
         <p class="label" data-reveal>Common questions</p>
-        <h2 class="h2" data-split>Questions, <em class="accent">answered straight.</em></h2>
+        <h2 class="h2" data-split data-m-oneline>Questions, <em class="accent">answered straight.</em></h2>
       </div>
     </div>
     <div class="faq__cols">
@@ -728,5 +729,6 @@
 <script src="assets/js/hero-dots.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/waves.js"></script>
+<script src="assets/js/mobile.js"></script>
 </body>
 </html>

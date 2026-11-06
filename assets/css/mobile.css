@@ -1,0 +1,179 @@
+/* Growth Saga AI site: phone pass (every page).
+   Loaded last on every page. Everything sits inside the 900px phone breakpoint, so desktop is untouched.
+   One system on phones: 56px section rhythm, centred section heads, one type scale, 48px buttons,
+   a corner-card menu, swipe rows for long card sets. */
+
+/* phone-only copy: the short line is hidden until the phone breakpoint */
+[data-m-only] { display: none; }
+.m-swipe-nav { display: none; }
+
+@media (max-width: 900px) {
+  :root { --sec: 56px; --gutter: 20px; }
+
+  /* ---------- Header + corner-card menu ---------- */
+  .header__logo img { width: 128px; }
+  .burger { width: 42px; height: 42px; }
+  .burger span { left: 12px; right: 12px; }
+  .burger span:first-child { top: 16px; }
+  .burger span:last-child { top: 23px; }
+
+  .menu {
+    inset: auto; top: 70px; right: 14px; left: auto; bottom: auto;
+    width: min(62vw, 236px); padding: 8px; gap: 0; justify-content: flex-start;
+    background:
+      radial-gradient(90% 70% at 100% 0%, rgba(255, 90, 60, .22), transparent 70%),
+      linear-gradient(160deg, rgba(30, 42, 90, .78), rgba(11, 15, 47, .9));
+    backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 90, 60, .38);
+    box-shadow: 0 28px 60px -16px rgba(0, 0, 0, .75), inset 0 1px 0 rgba(255, 255, 255, .1);
+    transform-origin: calc(100% - 26px) -8px; transform: scale(.55); opacity: 0;
+    transition: transform .55s cubic-bezier(.2, 1.25, .4, 1), opacity .3s var(--ease), visibility .55s;
+  }
+  .menu-open .menu { transform: none; opacity: 1; }
+  /* pointer notch under the menu button */
+  .menu::after {
+    content: ''; position: absolute; top: -7px; right: 20px; width: 12px; height: 12px;
+    background: rgb(36, 44, 92); border-top: 1px solid rgba(255, 90, 60, .38); border-left: 1px solid rgba(255, 90, 60, .38);
+    transform: rotate(45deg); clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .menu .btn, .menu__foot { display: none; }
+  .menu__links { gap: 4px; }
+  .menu__links a {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 12px 14px; font-size: 16px; font-weight: 600; letter-spacing: 0; line-height: 1.2;
+    color: var(--white); background: rgba(255, 255, 255, .05);
+  }
+  .menu__links a::after { content: '→'; font-size: 14px; color: var(--coral); }
+  .menu__links a[aria-current="page"] { background: var(--coral); color: var(--navy); font-weight: 800; }
+  .menu__links a[aria-current="page"]::after { color: var(--navy); }
+
+  /* ---------- Buttons: 48px, 14px text ---------- */
+  .btn, .btn--lg, .btn--sm { height: 48px; padding: 0 24px; gap: 8px; font-size: 14px; --cut: 10px; }
+  .btn__arrow { width: 11px; height: 11px; }
+  /* hero: the button and the text link share one line */
+  .hero .cta-row { flex-wrap: nowrap; gap: 22px; }
+  .hero .cta-row .btn { flex: none; }
+  .hero .cta-row .textlink { white-space: nowrap; font-size: 15px; }
+  /* a lone call to action outside the hero sits in the centre */
+  section:not(.hero) .cta-row, .section-cta { justify-content: center; align-items: center; text-align: center; }
+  .how__cta { display: flex; width: fit-content; margin: 24px auto 0; }
+
+  /* ---------- Type scale ---------- */
+  .hero__title { font-size: min(30px, 7.7vw); line-height: 1.06; letter-spacing: -.035em; }
+  .hero .label { display: block; margin-bottom: 16px; font-size: 11px; letter-spacing: .14em; }
+  .hero .label::before { display: inline-block; margin-right: 12px; vertical-align: 1px; }
+  .hero__lead { margin-top: 18px; font-size: 16px; line-height: 1.6; text-wrap: pretty; }
+  .hero .cta-row { margin-top: 26px; }
+  .h2, .final__title { font-size: min(27px, 6.9vw); line-height: 1.15; letter-spacing: -.025em; text-wrap: balance; }
+  .h2 .w, .final__title .w { text-wrap: balance; }
+
+  /* ---------- Section heads: eyebrow, headline and subheading centred on every section ---------- */
+  section:not(.hero) .label { justify-content: center; text-align: center; font-size: 11px; margin-bottom: 16px; }
+  section:not(.hero) .h2 { text-align: center; margin-left: auto; margin-right: auto; max-width: 22ch; }
+  section:not(.hero) .section-head, .svc__head { text-align: center; }
+  .section-head { margin-bottom: 32px; }
+  .svc__head { gap: 14px; }
+  .svc__head .lead, .section-head .lead, .section-head > p:not(.label), .svc__head > p { margin-left: auto; margin-right: auto; text-align: center; font-size: 16px; }
+  .faq__head .label { margin-bottom: 16px; }
+  /* card titles: one size under the section headline */
+  section:not(.hero) h3 { font-size: 19px; line-height: 1.25; text-wrap: balance; }
+
+  /* ---------- Footer: centred ---------- */
+  .footer { padding: 48px 0 28px; text-align: center; }
+  .footer__mega { font-size: clamp(40px, 13vw, 60px); }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px 16px; margin-top: 32px; padding-top: 32px; }
+  .footer__brand { display: flex; flex-direction: column; align-items: center; }
+  .footer__brand img { width: 150px; }
+  .footer__brand p { margin: 12px auto 18px; font-size: min(14.5px, 3.7vw); white-space: nowrap; max-width: none; }
+  .footer__col { align-items: center; }
+  .footer__col:last-child { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+  .footer__col:last-child p { flex-basis: 100%; }
+  .footer__base { flex-direction: column; align-items: center; gap: 6px; font-size: 12px; }
+
+  /* ---------- Swipe rows (long card sets): cards side by side, next one peeking ---------- */
+  [data-m-swipe] {
+    display: flex !important; grid-template-columns: none !important; gap: 12px !important;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    margin-left: calc(var(--gutter) * -1); margin-right: calc(var(--gutter) * -1);
+    padding: 4px var(--gutter) 8px; scroll-padding: 0 var(--gutter); scrollbar-width: none;
+  }
+  [data-m-swipe]::-webkit-scrollbar { display: none; }
+  [data-m-swipe] > * { flex: 0 0 84%; scroll-snap-align: start; }
+  .m-swipe-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18px; }
+  .m-swipe-nav button {
+    width: 42px; height: 42px; display: grid; place-items: center; cursor: pointer;
+    background: transparent; border: 1px solid currentColor; color: inherit; opacity: .9;
+    transition: opacity .3s, background-color .3s;
+  }
+  .m-swipe-nav button:disabled { opacity: .25; }
+  .m-swipe-nav svg { width: 14px; height: 14px; fill: currentColor; }
+  .m-swipe-dots { display: flex; gap: 6px; }
+  .m-swipe-dots i { width: 8px; height: 8px; background: currentColor; opacity: .25; transition: width .4s var(--ease), opacity .3s, background-color .3s; }
+  .m-swipe-dots i.is-on { width: 22px; opacity: 1; background: var(--coral); }
+
+  /* phone-only copy */
+  [data-m-hide] { display: none !important; }
+  [data-m-only] { display: inline; }
+  [data-m-nobr] { white-space: nowrap; }
+
+  /* ================= Home ================= */
+  .hero__bullets { margin-top: 26px; }
+  .hero__bullets li { font-size: min(15px, 3.9vw); }
+  /* services: 4 long cards become a swipe row */
+  .svc__grid > .svc-card { display: flex; flex-direction: column; }
+  .svc-card__line { margin-top: auto; }
+  /* process: steps closer together */
+  .step { padding: 26px 0; }
+  /* FAQ: a short headline, kept on one line */
+  [data-m-oneline] { white-space: nowrap; max-width: none !important; font-size: min(25px, 6.2vw); }
+  /* industries: 9 tiles, the last one takes the full row */
+  .ind__grid li:last-child:nth-child(odd) { grid-column: 1 / -1; flex-direction: row; align-items: center; }
+
+  /* ================= Services ================= */
+  /* headline first, then the screen, then the details */
+  .sv-sec__grid { display: flex; flex-direction: column; gap: 0; }
+  .sv-sec__copy, .sv-side { display: contents; }
+  .sv-sec__copy > .label { order: 1; }
+  .sv-sec__copy > .h2 { order: 2; }
+  .sv-side > .shot, .sv-side > .mock { order: 3; margin: 24px 0 8px; }
+  .sv-sec__copy > *:not(.label):not(.h2) { order: 4; }
+  .sv-side > *:not(.shot):not(.mock) { order: 5; margin-top: 12px; }
+  /* 6 "every project includes" points as a 2 × 3 grid */
+  .incl__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .incl__grid li { padding: 18px 14px; gap: 8px; }
+  .incl__icon { width: 34px; height: 34px; margin-bottom: 4px; }
+  .incl__grid strong { font-size: 15px; line-height: 1.3; }
+  .incl__grid p { font-size: 13.5px; line-height: 1.5; }
+  /* tools: two columns that never push past the screen edge */
+  .tools__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .tool { min-width: 0; padding: 16px 14px; }
+  .tool b { font-size: 15px; }
+  .tool small { padding-right: 40px; font-size: 10px; letter-spacing: .1em; }
+  .tools__note { text-align: center; }
+  /* pricing: the tick stays on the row it belongs to */
+  .pq__rows li { grid-template-columns: 46px minmax(0, 1fr) auto; align-items: center; }
+
+  /* ================= Case studies ================= */
+  .chips {
+    flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none;
+    margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 2px;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; padding: 9px 14px; font-size: 13px; }
+  /* Orange + Colorix logos side by side must fit the card */
+  .feat__logos { gap: 12px; }
+  .feat__logo { height: 28px; }
+  .feat__logo--cx { height: 24px; }
+  #nutanvij .feat__logo { height: 24px; }
+  .feat__nums b { font-size: 17px; letter-spacing: -.02em; white-space: nowrap; }
+  .feat__nums li { padding: 12px 10px 10px; }
+  .mini-grid > .mini { grid-row: auto; grid-template-rows: none; margin-bottom: 0; display: flex; flex-direction: column; }
+  .more-head { margin-top: 48px; }
+
+  /* ================= About ================= */
+  .exist__grid { grid-template-columns: 1fr; gap: 32px; }
+
+  /* ================= Contact ================= */
+  /* the headline flows as one sentence, balanced */
+  .ct-hero .hero__title .h-line { display: inline; }
+}
