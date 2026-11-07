@@ -165,6 +165,9 @@
   .footer__col { align-items: center; }
   .footer__col:last-child { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
   .footer__col:last-child p { flex-basis: 100%; }
+  /* five Connect links: three on top, two below, never one alone */
+  .footer__col:last-child::after { content: ''; flex-basis: 100%; order: 1; margin-top: -8px; }
+  .footer__col:last-child a:nth-of-type(n+4) { order: 2; }
   .footer__base { flex-direction: column; align-items: center; gap: 6px; font-size: 12px; }
 
   /* ---------- Swipe rows (long card sets): cards side by side, next one peeking ---------- */
