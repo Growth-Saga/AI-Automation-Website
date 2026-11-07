@@ -5,7 +5,7 @@
   const phone = matchMedia('(max-width: 900px)');
 
   /* ---------- 1 · Menu: mark the current page, tap outside to close ---------- */
-  const here = location.pathname.split('/').pop() || 'AI-automation-home.html';
+  const here = location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.menu__links a').forEach(a => {
     const href = a.getAttribute('href');
     if (href === '#top' || href === here) a.setAttribute('aria-current', 'page');

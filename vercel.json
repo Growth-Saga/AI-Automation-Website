@@ -1,5 +1,23 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/AI-automation-home.html", "destination": "/", "permanent": true },
+    { "source": "/AI-automation-about.html", "destination": "/about", "permanent": true },
+    { "source": "/AI-automation-services.html", "destination": "/services", "permanent": true },
+    { "source": "/AI-automation-case-studies.html", "destination": "/case-studies", "permanent": true },
+    { "source": "/AI-automation-contact.html", "destination": "/contact", "permanent": true }
+  ],
   "rewrites": [
-    { "source": "/", "destination": "/AI-automation-home.html" }
+    { "source": "/", "destination": "/AI-automation-home.html" },
+    { "source": "/about", "destination": "/AI-automation-about.html" },
+    { "source": "/services", "destination": "/AI-automation-services.html" },
+    { "source": "/case-studies", "destination": "/AI-automation-case-studies.html" },
+    { "source": "/contact", "destination": "/AI-automation-contact.html" }
+  ],
+  "headers": [
+    {
+      "source": "/llms.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    }
   ]
 }

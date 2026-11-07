@@ -1,0 +1,50 @@
+# Growth Saga
+
+> Growth Saga builds AI agents, AI automations, AI dashboards and AI go-to-market (GTM) systems for businesses. It is led by founder Yash Agarwal, a software engineer and business operator with 15+ years of experience. Every build starts with the business process and is tied to one agreed number, such as hours saved, calls booked or cash collected. Most builds go live in 3 to 8 weeks.
+
+- Website: https://www.growthsaga.co
+- Founder: Yash Agarwal, Surat, India (LinkedIn: https://www.linkedin.com/in/yash-agarwal-498961140/)
+- Works with businesses in: the United States, United Kingdom, United Arab Emirates and India
+- Email: support@growthsaga.co
+- LinkedIn: https://www.linkedin.com/company/growth-saga/
+- Facebook: https://www.facebook.com/growthsaga/
+- Instagram: https://www.instagram.com/growthsaga.co/
+- Book a free 30-minute call: https://calendly.com/growth-saga/ai-solutions-for-business
+
+## Pages
+
+- [Home](https://www.growthsaga.co/): what Growth Saga does, how it works, the founder, and FAQs
+- [Services](https://www.growthsaga.co/services): the four things Growth Saga builds, with real examples
+- [Case studies](https://www.growthsaga.co/case-studies): live client systems and their results
+- [About](https://www.growthsaga.co/about): the founder's story and the rules Growth Saga works by
+- [Contact](https://www.growthsaga.co/contact): book a free call or send a process by email
+
+## What Growth Saga builds
+
+- **AI agents:** voice agents that call, qualify and book meetings; speed-to-lead agents that answer new leads in under 60 seconds; voice-note agents that turn a salesperson's note (English, Hindi or Gujarati) into a CRM entry; document agents that read business cards, CVs and forms.
+- **AI automations:** AI invoice and bill entry posted to the accounting system (for example Tally), payment reminders, workflow apps that replace shared Google Sheets, live sync with the books, and tax and compliance checks.
+- **AI dashboards:** live CEO dashboards, finance reports straight from the books (P&L, balance sheet, receivables, ageing, stock), site and cost-centre P&L, plain-English AI summaries, and collections dashboards.
+- **AI GTM for B2B and SaaS:** ideal-customer research, list building and enrichment, signal-based targeting, personal AI-written outreach at scale, and meeting booking.
+
+## Results from live client systems
+
+- Electrical project firm: supplier bills read by AI and posted straight to Tally at about $0.04 per invoice, with 97% of items matched correctly after learning from 1,216 past invoices. A year-long site profit report now runs in 30 to 40 seconds (it took about 7 minutes).
+- Printing-ink manufacturer: a 22-panel CEO dashboard that replaced a paid BI tool, about 35 live finance reports, and 10 workflows moved off shared Google Sheets with 91 automatic alerts.
+- Also built: outbound voice agents for a US marketing agency, an end-to-end GTM engine for a UAE consultancy, a private chef operating system for a French culinary business, and AI speed-to-lead for a service business.
+
+## How it works
+
+1. Free 30-minute discovery call about the business, the numbers and what is broken.
+2. Business mapping (weeks 1 to 2): the process is written down and the target number is agreed.
+3. Solution design (weeks 2 to 3): the client approves the design before the build.
+4. Build and integrate (weeks 3 to 6): connected to the tools the business already uses, with plain-English documentation.
+5. Go-live and optimise (ongoing): Growth Saga tracks the agreed number and handles upkeep, fixes and changes.
+
+## Common questions
+
+- **How long does a project take?** Most builds ship in 3 to 8 weeks depending on scope.
+- **What does it cost?** After the free call, Growth Saga sends a written proposal: one fixed monthly fee, plus a one-time setup fee if the project needs one. AI usage and hosting costs are the client's and are listed upfront. No hourly billing.
+- **Do I need to know what AI I want?** No. The client brings the business problem; Growth Saga works out whether it needs an agent, an automation, a dashboard or none of these.
+- **What does Growth Saga build with?** Claude Code, plus Claude, ChatGPT, Gemini or Grok depending on the job, with custom code and connections to existing ERP, CRM and accounting systems.
+- **Which industries?** Any business that runs on processes. Work so far covers manufacturing, electrical contracting, marketing agencies, consultancies, culinary businesses and creators.
+- **Who will I talk to?** Yash Agarwal, the founder, who is on every project from start to finish.
